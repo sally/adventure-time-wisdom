@@ -1,28 +1,37 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <section class="hero is-fullheight">
+      <!-- <div class="hero-head">Hero Header Text</div> -->
+      <div class="hero-body">
+        <div class="container has-text-centered">
+          <random-quote testMsg="A mathematical quote here!"/>
+        </div>
+      </div>
+      <!-- <div class="hero-foot">Hero Header Footer</div> -->
+    </section>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import RandomQuote from './components/RandomQuote.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    RandomQuote
   }
 }
 </script>
 
 <style>
+@import '../node_modules/bulma/css/bulma.css';
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  background-image: url("https://i.imgur.com/RETkwA5.png");
+  background-color: rgba(255, 255, 255, 0.8);
+  background-blend-mode: lighten;
 }
 </style>
