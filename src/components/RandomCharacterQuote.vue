@@ -1,12 +1,12 @@
 <template>
-    <span>{{ testMsg }}</span>
+    <span>{{ character }}</span>
 </template>
 
 <script>
 export default {
-    name: 'random-quote',
+    name: 'random-character-quote',
     props: {
-        testMsg: String
+        character: Object
     }
 }
 </script>

@@ -4,7 +4,11 @@
       <!-- <div class="hero-head">Hero Header Text</div> -->
       <div class="hero-body">
         <div class="container has-text-centered">
-          <random-quote testMsg="A mathematical quote here!"/>
+          <random-character-quote
+            v-for="character in characters"
+            :character="character"
+            :key="character.slug"
+          />
         </div>
       </div>
       <!-- <div class="hero-foot">Hero Header Footer</div> -->
@@ -13,12 +17,29 @@
 </template>
 
 <script>
-import RandomQuote from './components/RandomQuote.vue'
+import RandomCharacterQuote from './components/RandomCharacterQuote.vue'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      characters: []
+    }
+  },
   components: {
-    RandomQuote
+    RandomCharacterQuote
+  },
+  methods: {
+    fetchCharacters() {
+      fetch("https://adventure-time-api.herokuapp.com/api/v1/characters", {
+        method: 'GET'
+      })
+        .then(response => response.json())
+        .then(json => this.characters = json)
+    }
+  },
+  created() {
+    this.fetchCharacters();
   }
 }
 </script>
@@ -27,9 +48,6 @@ export default {
 @import '../node_modules/bulma/css/bulma.css';
 
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   background-image: url("https://i.imgur.com/RETkwA5.png");
   background-color: rgba(255, 255, 255, 0.8);
   background-blend-mode: lighten;
