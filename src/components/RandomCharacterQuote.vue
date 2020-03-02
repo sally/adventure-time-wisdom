@@ -3,12 +3,15 @@
         <div class="card">
             <div class="card-content has-text-centered">
                 <img :src="character.sprite" />
-                <br/>
-                {{ randomQuote }}
+                <p>{{ displayedQuote }}</p>
+                <br />
+                <p>
+                    <button class="is-small button" @click="randomizeQuote">
+                        More {{ character.displayName }} wisdom?
+                    </button>
+                </p>
             </div>
-            <footer class="card-footer">
-                <p class="card-footer-item">{{ character.displayName }}</p>
-            </footer>
+
         </div>
     </div>
 </template>
@@ -19,10 +22,19 @@ export default {
     props: {
         character: Object
     },
-    computed: {
-        randomQuote() {
-            return this.character.quotes[Math.floor(Math.random() * this.character.quotes.length)];
+    data() {
+        return {
+            displayedQuote: ""
         }
+    },
+    methods: {
+        randomizeQuote() {
+            const availableQuotes = this.character.quotes.filter(quote => quote != this.displayedQuote);
+            this.displayedQuote = availableQuotes[Math.floor(Math.random() * availableQuotes.length)];
+        }
+    },
+    created() {
+        this.randomizeQuote();
     }
 }
 </script>
