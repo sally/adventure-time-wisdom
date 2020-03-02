@@ -1,8 +1,15 @@
 <template>
     <div id="random-character-quote">
-        <img :src="character.sprite" />
-        <br/>
-        {{ randomQuote }}
+        <div class="card">
+            <div class="card-content has-text-centered">
+                <img :src="character.sprite" />
+                <br/>
+                {{ randomQuote }}
+            </div>
+            <footer class="card-footer">
+                <p class="card-footer-item">{{ character.displayName }}</p>
+            </footer>
+        </div>
     </div>
 </template>
 

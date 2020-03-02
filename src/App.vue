@@ -42,9 +42,14 @@ export default {
 <style>
 @import '../node_modules/bulma/css/bulma.css';
 
-#app {
+html {
   background-image: url("https://i.imgur.com/RETkwA5.png");
   background-color: rgba(255, 255, 255, 0.8);
   background-blend-mode: lighten;
+}
+
+.quotes-container {
+  max-width: 1200px;
+  margin: 0 auto;
 }
 </style>
