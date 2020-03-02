@@ -1,18 +1,13 @@
 <template>
   <div id="app">
-    <section class="hero is-fullheight">
-      <!-- <div class="hero-head">Hero Header Text</div> -->
-      <div class="hero-body">
-        <div class="container has-text-centered">
-          <random-character-quote
-            v-for="character in characters"
-            :character="character"
-            :key="character.slug"
-          />
-        </div>
-      </div>
-      <!-- <div class="hero-foot">Hero Header Footer</div> -->
-    </section>
+    <div class="quotes-container columns is-multiline">
+      <random-character-quote
+        class="column is-one-third"
+        v-for="character in characters"
+        :character="character"
+        :key="character.slug"
+      />
+    </div>
   </div>
 </template>
 
