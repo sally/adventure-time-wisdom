@@ -1,5 +1,15 @@
 <template>
   <div id="app">
+    <section class="header">
+      <div class="columns has-text-centered">
+        <div class="column is-one-third is-offset-one-third">
+          <img src="https://www.stickpng.com/assets/images/5c80f70f72f5d9028c17ed26.png">
+          <br/>
+          <h1 class="title">Adventure Time Wisdom</h1>
+          <h1 class="subtitle">Inspirational, insightful <s>nonsense</s> quotes from the widely beloved children's show, Adventure Time.</h1>
+        </div>
+      </div>
+    </section>
     <div class="quotes-container columns is-multiline">
       <random-character-quote
         class="column is-one-third"
