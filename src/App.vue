@@ -54,12 +54,10 @@ export default {
         .then(response => response.json())
         .then(json => this.characters = json)
     },
-    beforeEnter: function (el) {
-      el.style.opacity = 0;
-    },
-    enter: function (el, done) {
+    beforeEnter: el => el.style.opacity = 0,
+    enter: (el, done) => {
       var delay = el.dataset.index * 300
-      setTimeout(function () {
+      setTimeout(() => {
         Velocity(
           el,
           { opacity: 1 },
