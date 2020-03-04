@@ -3,7 +3,9 @@
         <div class="card">
             <div class="card-content has-text-centered">
                 <img :src="character.sprite" />
-                <p>{{ displayedQuote }}</p>
+                <transition name="fade" mode="out-in">
+                    <p :key="displayedQuoteIndex">{{ displayedQuote }}</p>
+                </transition>
                 <br />
                 <p>
                     <button class="is-small button" @click="randomizeQuote">
@@ -24,13 +26,15 @@ export default {
     },
     data() {
         return {
-            displayedQuote: ""
+            displayedQuote: "",
+            displayedQuoteIndex: -1
         }
     },
     methods: {
         randomizeQuote() {
             const availableQuotes = this.character.quotes.filter(quote => quote != this.displayedQuote);
             this.displayedQuote = availableQuotes[Math.floor(Math.random() * availableQuotes.length)];
+            this.displayedQuoteIndex = this.character.quotes.indexOf(this.displayedQuote);
         }
     },
     created() {
@@ -39,4 +43,11 @@ export default {
 }
 </script>
 
-<style scoped />
+<style scoped>
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .25s;
+    }
+    .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+        opacity: 0;
+    }
+</style>
