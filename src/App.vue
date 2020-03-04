@@ -56,7 +56,7 @@ export default {
     },
     beforeEnter: el => el.style.opacity = 0,
     enter: (el, done) => {
-      var delay = el.dataset.index * 300
+      var delay = el.dataset.index * 250
       setTimeout(() => {
         Velocity(
           el,
