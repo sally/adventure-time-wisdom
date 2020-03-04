@@ -10,18 +10,30 @@
         </div>
       </div>
     </section>
-    <div class="quotes-container columns is-multiline">
+    <transition-group
+      tag="div"
+      class="quotes-container columns is-multiline"
+
+      appear
+      name="staggered-fade"
+      v-bind:css="false"
+      v-on:before-enter="beforeEnter"
+      v-on:enter="enter"
+    >
       <random-character-quote
         class="column is-one-third"
-        v-for="character in characters"
+        v-for="(character, index) in characters"
         :character="character"
         :key="character.slug"
+        :data-index="index"
       />
-    </div>
+    </transition-group>
   </div>
 </template>
 
 <script>
+import Velocity from 'velocity-animate'
+
 import RandomCharacterQuote from './components/RandomCharacterQuote.vue'
 
 export default {
@@ -41,7 +53,18 @@ export default {
       })
         .then(response => response.json())
         .then(json => this.characters = json)
-    }
+    },
+    beforeEnter: el => el.style.opacity = 0,
+    enter: (el, done) => {
+      var delay = el.dataset.index * 250
+      setTimeout(() => {
+        Velocity(
+          el,
+          { opacity: 1 },
+          { complete: done }
+        )
+      }, delay)
+    },
   },
   created() {
     this.fetchCharacters();
