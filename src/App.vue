@@ -1,5 +1,3 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
-
 <template>
   <div id="app">
     <section class="header">
@@ -34,6 +32,8 @@
 </template>
 
 <script>
+import Velocity from 'velocity-animate'
+
 import RandomCharacterQuote from './components/RandomCharacterQuote.vue'
 
 export default {
