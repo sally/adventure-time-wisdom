@@ -33,6 +33,14 @@
         :data-index="index"
       />
     </transition-group>
+    <footer class="footer">
+      <div class="content has-text-centered">
+        <p>
+          <a href="https://github.com/sally/adventure-time-wisdom">Adventure Time Wisdom</a> by Sally 🥰<br/>
+          <i>Adventure Time</i> © Cartoon Network 📺
+        </p>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -93,6 +101,10 @@ html {
 .quotes-container {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.footer {
+  background-color: transparent;
 }
 
 /* CSS loading spinner */
