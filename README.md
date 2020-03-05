@@ -10,7 +10,7 @@ The usage is simple. The page will display results of the Characters API from [A
 
 The random quote can be rerolled by pressing the "More (character name) wisdom?" button on each card.
 
-![Adventure Time Wisdom Demo](./public/at-wisdom-demo-640.gif)
+![Adventure Time Wisdom Demo](./public/at-wisdom-demo.gif)
 
 ## Local usage
 
