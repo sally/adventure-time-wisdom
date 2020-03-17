@@ -93,8 +93,8 @@ export default {
 @import '../node_modules/bulma/css/bulma.css';
 
 html {
-  background-image: url("./assets/bg-chars-breakfasts.png");
-  background-color: rgba(255, 255, 255, 0.8);
+  background-image: url("./assets/bg-chars.jpg");
+  background-color: rgba(255, 255, 255, 0.875);
   background-blend-mode: lighten;
 }
 
